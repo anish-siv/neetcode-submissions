@@ -1,0 +1,20 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        freq = {}
+
+        if len(s) != len(t): # Edge case: If each string has uneven lengths
+            return False
+
+        for char in s:
+            freq[char] = freq.get(char, 0) + 1
+        
+        for char in t:
+            freq[char] = freq.get(char, 0) - 1
+            if freq[char] < 0:
+                return False
+        return True
+
+
+
+
+        # Character : Frequency of times appeared
